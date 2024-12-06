@@ -63,9 +63,18 @@ public class elementStore {
 	@FindBy(xpath ="//*[@id=\"inventory_item_container\"]/div/div/div/button")
 	WebElement addToCartButton;
 	
-	@FindBy(xpath="//*[@id=\"shopping_cart_container\"]/a/svg")
+	@FindBy(id="shopping_cart_container")
 	WebElement shoppingCartClick;
+	
+	@FindBy(xpath = "//*[@id=\"cart_contents_container\"]/div/div[2]/a[2]")
+	WebElement checkoutButton;
 
+	@FindBy(xpath="//*[@id=\"checkout_summary_container\"]/div/div[2]/div[8]/a[2]")
+	WebElement finishButton;
+	
+	@FindBy(id = "checkout_complete_container")
+	WebElement orderCompleteStatus;
+	
 	public void usernameField(String value1) {
 		usernameTextField.sendKeys(value1);
 	}
@@ -140,5 +149,19 @@ public class elementStore {
 	public void shoppingCartClick() {
 		shoppingCartClick.click();
 	}
+	
+	public void checkOutButton() {
+		checkoutButton.click();
+	}
+	
+	public void finishButton()
+	{
+		finishButton.click();
+	}
 
+	public void orderCompleteStatus()
+	{
+		orderCompleteStatus.click();
+	}
 }
+
