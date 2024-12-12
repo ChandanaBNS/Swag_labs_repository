@@ -5,11 +5,9 @@
     <classes>
       <class name="com.test.swagTest">
         <methods>
+          <include name="testCase5"/>
           <include name="browserClose"/>
           <include name="browserLaunch"/>
-          <include name="testCase4"/>
-          <include name="testCase3"/>
-          <include name="testCase2"/>
         </methods>
       </class> <!-- com.test.swagTest -->
     </classes>

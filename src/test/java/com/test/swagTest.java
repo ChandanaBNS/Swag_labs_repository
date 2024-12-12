@@ -25,7 +25,7 @@ public class swagTest {
 
 	@Test
 	public void testCase1() throws InterruptedException {
-		System.out.println("TESTCASE1:Login Functionality check!");
+		System.out.println("TESTCASE_1:Login Functionality check!");
 		es.usernameField("standard_user");
 		es.passwordField("secret_sauce");
 		es.loginButton();
@@ -39,7 +39,7 @@ public class swagTest {
 
 	@Test
 	public void testCase2() throws InterruptedException {
-		System.out.println("TESTCASE2: Dropdown Functionality check!");
+		System.out.println("TESTCASE_2: Dropdown Functionality check!");
 		testCase1();
 		Thread.sleep(4000);
 		es.dropDownBoxFieldValue("product_sort_container", "az");
@@ -47,6 +47,7 @@ public class swagTest {
 		es.dropDownBoxFieldIndex("product_sort_container", 1);
 		Thread.sleep(4000);
 		es.dropDownBoxFieldVisibleText("product_sort_container", "Price (low to high)");
+		
 		Thread.sleep(4000);
 		es.dropDownBoxFieldValue("product_sort_container", "hilo");
 		Thread.sleep(4000);
@@ -66,22 +67,36 @@ public class swagTest {
 
 	@Test
 	public void testCase4() throws InterruptedException {
-		System.out.println("TESTCASE3:Adding information for checkingout!");
+		System.out.println("TESTCASE_4:Adding information for checkingout!");
 		testCase3();
 		Thread.sleep(3000);
 		es.shoppingCartClick();
 		Thread.sleep(3000);
+		es.checkOutButton();
+		Thread.sleep(3000);
 		es.firstNameField("ABC");
 		es.lastNameField("EFG");
 		es.postalCodeField("78727");
+		Thread.sleep(3000);
 		es.continueButton();
 		Thread.sleep(4000);
+
+	}
+
+	@Test
+	public void testCase5() throws InterruptedException {
+		System.out.println("TESTCASE_5:Adding information for checkingout!");
+		testCase4();
+		es.finishButton();
+		Thread.sleep(3000);
+		es.orderCompleteStatus();
 
 	}
 
 	@AfterMethod
 	public void browserClose() {
 		driver.close();
+		driver.quit();
 	}
 
 }
